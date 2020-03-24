@@ -1,5 +1,7 @@
 # bowling
 
+Having fun playing with the Kata from http://codingdojo.org/kata/Bowling/
+
 Supports: iOS 11.3 and above
 
 ## Branches:
