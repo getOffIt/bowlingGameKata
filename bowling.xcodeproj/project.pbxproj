@@ -20,6 +20,8 @@
 		C90395261FC62399006F1DC0 /* TestsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90395251FC62399006F1DC0 /* TestsAppDelegate.swift */; };
 		C90395271FC62425006F1DC0 /* TestsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90395251FC62399006F1DC0 /* TestsAppDelegate.swift */; };
 		EDD1C064242A2D3500B0B8B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD1C063242A2D3500B0B8B7 /* Main.storyboard */; };
+		EDD1C066242A776600B0B8B7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1C065242A776600B0B8B7 /* Game.swift */; };
+		EDD1C069242A784400B0B8B7 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1C068242A784400B0B8B7 /* GameTests.swift */; };
 		FCB2C7CB1F57127800481080 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCB2C7CA1F57127800481080 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		C90395231FC622D2006F1DC0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C90395251FC62399006F1DC0 /* TestsAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsAppDelegate.swift; sourceTree = "<group>"; };
 		EDD1C063242A2D3500B0B8B7 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EDD1C065242A776600B0B8B7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		EDD1C068242A784400B0B8B7 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		F0388E209DB9AB5260737932 /* Pods-bowling.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bowling.staging.xcconfig"; path = "Target Support Files/Pods-bowling/Pods-bowling.staging.xcconfig"; sourceTree = "<group>"; };
 		F4F12C0900BAF2D381E414DB /* Pods_bowling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bowling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB2C7CA1F57127800481080 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -203,7 +207,6 @@
 				93C0BE362FFD45293548F6A1 /* Pods-bowlingTests.staging.xcconfig */,
 				B470971FCF9C107867240F47 /* Pods-bowlingTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -219,10 +222,20 @@
 		ED9418BB241BA09000452900 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				EDD1C067242A77DF00B0B8B7 /* Kata */,
 				C90395231FC622D2006F1DC0 /* main.swift */,
 				2A1E77361F384BFC006C84D4 /* AppDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		EDD1C067242A77DF00B0B8B7 /* Kata */ = {
+			isa = PBXGroup;
+			children = (
+				EDD1C065242A776600B0B8B7 /* Game.swift */,
+				EDD1C068242A784400B0B8B7 /* GameTests.swift */,
+			);
+			path = Kata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,7 +375,7 @@
 			);
 			name = R.swift;
 			outputPaths = (
-				"$SRCROOT/bowling/Resources/Generated/R.generated.swift",
+				$SRCROOT/bowling/Resources/Generated/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -431,6 +444,7 @@
 			files = (
 				2A9222821F38797600A648E6 /* ConfigurationManager.swift in Sources */,
 				2ABEE6D61F3886D700531205 /* RootRouter.swift in Sources */,
+				EDD1C066242A776600B0B8B7 /* Game.swift in Sources */,
 				C90395241FC622D2006F1DC0 /* main.swift in Sources */,
 				2A1E77371F384BFC006C84D4 /* AppDelegate.swift in Sources */,
 				553FC23C214047CB001D9362 /* R.generated.swift in Sources */,
@@ -443,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C90395261FC62399006F1DC0 /* TestsAppDelegate.swift in Sources */,
+				EDD1C069242A784400B0B8B7 /* GameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
