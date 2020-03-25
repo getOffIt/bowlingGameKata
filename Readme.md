@@ -1,3 +1,10 @@
+#status
+<p align="center">
+  <a href="https://travis-ci.com/github/getOffIt/bowlingGameKata">
+    <img src="https://img.shields.io/travis/com/getOffIt/bowlingGameKata?style=for-the-badge" alt="Build status" />
+  </a>
+</p>
+
 # bowling
 
 Having fun playing with the Kata from http://codingdojo.org/kata/Bowling/
