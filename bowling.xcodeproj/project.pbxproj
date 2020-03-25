@@ -174,8 +174,8 @@
 		2AFB31071F38542E009C4586 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				2ABEE6D31F38828A00531205 /* Configuration.plist */,
 				2A1E77421F384BFD006C84D4 /* Info.plist */,
+				2ABEE6D31F38828A00531205 /* Configuration.plist */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";

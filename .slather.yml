@@ -1,0 +1,5 @@
+coverage_service: cobertura_xml
+workspace: ./bowling.xcworkspace
+xcodeproj: ./bowling.xcodeproj
+scheme: bowling
+output_directory: ./
