@@ -3,4 +3,4 @@ language: swift
 script:
   - xcodebuild -workspace bowling.xcworkspace -scheme bowling -sdk iphonesimulator -destination 'name=iPhone 11 Pro Max' test | xcpretty
 after_success:
-  - codecov
+  - bash <(curl -s https://codecov.io/bash)
