@@ -3,6 +3,8 @@
   <a href="https://travis-ci.com/github/getOffIt/bowlingGameKata">
     <img src="https://img.shields.io/travis/com/getOffIt/bowlingGameKata?style=for-the-badge" alt="Build status" />
   </a>
+  <a href="">
+  <img src="https://img.shields.io/codecov/c/github/getOffit/bowlingGameKata?style=for-the-badge" alt="codecov coverage" />
 </p>
 
 # bowling
