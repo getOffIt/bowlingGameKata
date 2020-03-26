@@ -5,7 +5,6 @@ install:
 script:
   - xcodebuild -workspace bowling.xcworkspace -scheme bowling -sdk iphonesimulator -destination 'name=iPhone 11 Pro Max' test | xcpretty
   - slather
-  - bash <(curl -Ls https://coverage.codacy.com/get.sh)
   - bash <(curl -s https://codecov.io/bash) -f ./cobertura.xml
   
 after_success:
