@@ -1,10 +1,11 @@
-#status
+# Status:
 <p align="center">
   <a href="https://travis-ci.com/github/getOffIt/bowlingGameKata">
     <img src="https://img.shields.io/travis/com/getOffIt/bowlingGameKata?style=for-the-badge" alt="Build status" />
   </a>
-  <a href="">
+  <a href="https://codecov.io/gh/getOffIt/bowlingGameKata">
   <img src="https://img.shields.io/codecov/c/github/getOffit/bowlingGameKata?style=for-the-badge" alt="codecov coverage" />
+  </a>
 </p>
 
 # bowling
