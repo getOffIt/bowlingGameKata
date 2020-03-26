@@ -8,6 +8,10 @@
   </a>
 </p>
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/62c00ede16484635a07d66af4c81a9e6)](https://www.codacy.com/manual/getOffIt/bowlingGameKata?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=getOffIt/bowlingGameKata&amp;utm_campaign=Badge_Grade)
+
+[![Coverage Status](https://coveralls.io/repos/github/getOffIt/bowlingGameKata/badge.svg?branch=master)](https://coveralls.io/github/getOffIt/bowlingGameKata?branch=master)
+
 # bowling
 
 Having fun playing with the Kata from http://codingdojo.org/kata/Bowling/
