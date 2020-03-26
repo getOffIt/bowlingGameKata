@@ -1,4 +1,7 @@
 #status
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ae7c8940bfc640a2a3e03692dbbcdc1c)](https://app.codacy.com/manual/getOffIt/bowlingGameKata?utm_source=github.com&utm_medium=referral&utm_content=getOffIt/bowlingGameKata&utm_campaign=Badge_Grade_Dashboard)
+
 <p align="center">
   <a href="https://travis-ci.com/github/getOffIt/bowlingGameKata">
     <img src="https://img.shields.io/travis/com/getOffIt/bowlingGameKata?style=for-the-badge" alt="Build status" />
