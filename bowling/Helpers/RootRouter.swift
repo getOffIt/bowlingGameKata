@@ -17,8 +17,7 @@ class RootRouter {
         }
         if let animationOptions = animatedWithOptions, window.rootViewController != nil {
             window.rootViewController = controller
-            UIView.transition(with: window, duration: 0.33, options: animationOptions, animations: {
-            }, completion: nil)
+            UIView.transition(with: window, duration: 0.33, options: animationOptions, animations: nil, completion: nil)
         } else {
             window.rootViewController = controller
         }
