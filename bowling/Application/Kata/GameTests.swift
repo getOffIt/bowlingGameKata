@@ -40,6 +40,14 @@ class GameTests: XCTestCase {
         XCTAssertEqual(game.score(), 16)
     }
 
+    func testOneStrike() {
+        game.roll(10)
+        game.roll(3)
+        game.roll(4)
+        rollMany(rolls: 17, pins: 0)
+        XCTAssertEqual(game.score(), 24)
+    }
+
     fileprivate func rollSpare() {
         game.roll(5)
         game.roll(5)

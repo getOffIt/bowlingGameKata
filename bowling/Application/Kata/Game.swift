@@ -21,6 +21,12 @@ struct Frame {
         }
         return false
     }
+    func isStrike() -> Bool {
+        if firstRoll == 10 {
+            return true
+        }
+        return false
+    }
 }
 
 class Game {
@@ -42,6 +48,9 @@ class Game {
             frame.firstRoll = pins
             frame.firstRollPlayed = true
             frames[frameIndex] = frame
+            if frame.isStrike() {
+                frameIndex += 1
+            }
         } else {
             frame.secondRoll = pins
             frames[frameIndex] = frame
@@ -55,12 +64,22 @@ class Game {
         while cpt < frames.count {
             let frame = frames[cpt]
             var frameScore = frame.rollScore
-            if frame.isSpare() {
-                frameScore += frames[cpt + 1].firstRoll
+            if frame.isStrike() {
+                frameScore += strikeBonus(cpt + 1)
+            } else if frame.isSpare() {
+                frameScore += spareBonus(cpt + 1)
             }
             finalScore += frameScore
             cpt += 1
         }
         return finalScore
+    }
+
+    fileprivate func spareBonus(_ cpt: Int) -> Int {
+        return frames[cpt].firstRoll
+    }
+
+    fileprivate func strikeBonus(_ cpt: Int) -> Int {
+        return frames[cpt].rollScore
     }
 }
