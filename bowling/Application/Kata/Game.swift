@@ -11,12 +11,23 @@ import Foundation
 struct Frame {
     var firstRoll: Int = 0
     var secondRoll: Int = 0
+    var firstRollPlayed = false
+    var rollScore: Int {
+        return firstRoll + secondRoll
+    }
+    func isSpare() -> Bool {
+        if firstRoll + secondRoll == 10 {
+            return true
+        }
+        return false
+    }
 }
 
 class Game {
     private var currentScore = 0
     private var frameIndex = 0
     private var frames = [Frame]()
+    private let kSpare = 10
 
     init() {
         for _ in 1...20 {
@@ -27,17 +38,29 @@ class Game {
 
     func roll(_ pins: Int) {
         var frame = frames[frameIndex]
-        frame.firstRoll = pins
-        frames[frameIndex] = frame
-        frameIndex += 1
+        if frame.firstRollPlayed == false {
+            frame.firstRoll = pins
+            frame.firstRollPlayed = true
+            frames[frameIndex] = frame
+        } else {
+            frame.secondRoll = pins
+            frames[frameIndex] = frame
+            frameIndex += 1
+        }
     }
 
     func score() -> Int {
-        var theScore: Int = 0
-        for frame in frames {
-            theScore += frame.firstRoll
-            theScore += frame.secondRoll
+        var finalScore = 0
+        var cpt = 0
+        while cpt < frames.count {
+            let frame = frames[cpt]
+            var frameScore = frame.rollScore
+            if frame.isSpare() {
+                frameScore += frames[cpt + 1].firstRoll
+            }
+            finalScore += frameScore
+            cpt += 1
         }
-        return theScore
+        return finalScore
     }
 }

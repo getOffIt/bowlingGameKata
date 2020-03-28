@@ -30,16 +30,20 @@ class GameTests: XCTestCase {
 
     func testAllOnes() {
         rollMany(rolls: 20, pins: 1)
-        XCTAssertTrue(game.score() == 20)
+        XCTAssertEqual(game.score(), 20)
     }
 
-//    func testOneSpare() {
-//        game.roll(5)
-//        game.roll(5) // spare
-//        game.roll(3)
-//        rollMany(rolls: 17, pins: 0)
-//        XCTAssertTrue(game.score() == 16)
-//    }
+    func testOneSpare() {
+        rollSpare() // spare
+        game.roll(3)
+        rollMany(rolls: 17, pins: 0)
+        XCTAssertEqual(game.score(), 16)
+    }
+
+    fileprivate func rollSpare() {
+        game.roll(5)
+        game.roll(5)
+    }
 
     func rollMany(rolls: Int, pins: Int) {
         for _ in 1...rolls {
