@@ -38,7 +38,7 @@ class Game {
 
     func roll(_ pins: Int) {
         var frame = frames[frameIndex]
-        if frame.firstRollPlayed == false {
+        if !frame.firstRollPlayed {
             frame.firstRoll = pins
             frame.firstRollPlayed = true
             frames[frameIndex] = frame
