@@ -8,14 +8,36 @@
 
 import Foundation
 
+struct Frame {
+    var firstRoll: Int = 0
+    var secondRoll: Int = 0
+}
+
 class Game {
     private var currentScore = 0
+    private var frameIndex = 0
+    private var frames = [Frame]()
+
+    init() {
+        for _ in 1...20 {
+            let frame = Frame()
+            frames.append(frame)
+        }
+    }
 
     func roll(_ pins: Int) {
-        currentScore += pins
+        var frame = frames[frameIndex]
+        frame.firstRoll = pins
+        frames[frameIndex] = frame
+        frameIndex += 1
     }
 
     func score() -> Int {
-        return currentScore
+        var theScore: Int = 0
+        for frame in frames {
+            theScore += frame.firstRoll
+            theScore += frame.secondRoll
+        }
+        return theScore
     }
 }
