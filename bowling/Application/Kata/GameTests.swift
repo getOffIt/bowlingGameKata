@@ -41,11 +41,30 @@ class GameTests: XCTestCase {
     }
 
     func testOneStrike() {
-        game.roll(10)
+        rollStrike()
         game.roll(3)
         game.roll(4)
         rollMany(rolls: 17, pins: 0)
         XCTAssertEqual(game.score(), 24)
+    }
+
+    func testSpareLastFrame() {
+        rollMany(rolls: 19, pins: 0)
+        rollSpare()
+        game.roll(3)
+        XCTAssertEqual(game.score(), 13)
+    }
+
+    func testStrikeLastFrame() {
+        rollMany(rolls: 19, pins: 0)
+        rollStrike()
+        game.roll(3)
+        game.roll(3)
+        XCTAssertEqual(game.score(), 16)
+    }
+
+    fileprivate func rollStrike() {
+        game.roll(10)
     }
 
     fileprivate func rollSpare() {

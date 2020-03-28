@@ -8,10 +8,12 @@
 
 import Foundation
 
-struct Frame {
+class Frame {
     var firstRoll: Int = 0
     var secondRoll: Int = 0
     var firstRollPlayed = false
+    var finished = false
+    private let kSpare = 10
     var rollScore: Int {
         return firstRoll + secondRoll
     }
@@ -27,33 +29,42 @@ struct Frame {
         }
         return false
     }
+
+    func roll(_ pins: Int) {
+        if !firstRollPlayed {
+            firstRoll = pins
+            firstRollPlayed = true
+        } else {
+            secondRoll = pins
+            finished = true
+        }
+    }
 }
 
 class Game {
     private var currentScore = 0
     private var frameIndex = 0
     private var frames = [Frame]()
-    private let kSpare = 10
-
+    private var bonusFrame = Frame()
     init() {
-        for _ in 1...20 {
+        for _ in 1...11 {
             let frame = Frame()
             frames.append(frame)
         }
     }
 
     func roll(_ pins: Int) {
-        var frame = frames[frameIndex]
-        if !frame.firstRollPlayed {
-            frame.firstRoll = pins
-            frame.firstRollPlayed = true
-            frames[frameIndex] = frame
-            if frame.isStrike() {
-                frameIndex += 1
-            }
-        } else {
-            frame.secondRoll = pins
-            frames[frameIndex] = frame
+        if frameIndex == 10 { // Bonus
+            bonusFrame.roll(pins)
+            return
+        }
+        let frame = frames[frameIndex]
+        frame.roll(pins)
+        frames[frameIndex] = frame
+        if frame.isStrike() {
+            frameIndex += 1
+        }
+        if frame.finished {
             frameIndex += 1
         }
     }
@@ -72,7 +83,7 @@ class Game {
             finalScore += frameScore
             cpt += 1
         }
-        return finalScore
+        return finalScore + bonusFrame.rollScore
     }
 
     fileprivate func spareBonus(_ cpt: Int) -> Int {
