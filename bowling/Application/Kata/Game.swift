@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class Game {
 
     func roll(_ pins: Int) {
