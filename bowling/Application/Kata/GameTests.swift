@@ -2,7 +2,6 @@
 //  GameTests.swift
 //  bowlingTests
 //
-//  Created by Antoine Rabanes on 24/03/2020.
 //  Copyright © 2020 non. All rights reserved.
 //
 
