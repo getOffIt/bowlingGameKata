@@ -8,12 +8,18 @@
 import Foundation
 
 class Frame {
-    private var rollOne = 0
+    var rollOne = 0
     private var rollOneScored = false
     private var rollTwoScored = false
     private var rollTwo = 0
     var frameFinished: Bool {
         return rollOneScored && rollTwoScored
+    }
+    var isSpare: Bool {
+        if rollOne + rollTwo == 10 {
+            return true
+        }
+        return false
     }
 
     func score(pins: Int) {
@@ -31,8 +37,16 @@ class Frame {
 }
 
 class Game {
-    private var rolls: [Frame] = Array(repeating: Frame(), count: 10)
+    private var rolls: [Frame]
     private var frameIndex = 0
+
+    init() {
+        rolls = Array()
+        for _ in 1...10 {
+            let frame = Frame()
+            rolls.append(frame)
+        }
+    }
 
     func roll(_ pins: Int) {
         let frame = rolls[frameIndex]
@@ -44,8 +58,17 @@ class Game {
 
     func score() -> Int {
         var retVal = 0
+        var counter = 0
         for frame in rolls {
             retVal += frame.frameScore
+            if frame.isSpare {
+                // no extra points for last frame
+                if counter != 9 {
+                    // add spare Bonus points to scoring
+                    retVal += rolls[counter + 1].rollOne
+                }
+            }
+            counter += 1
         }
         return retVal
     }
