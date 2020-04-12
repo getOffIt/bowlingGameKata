@@ -31,10 +31,44 @@ class GameTests: XCTestCase {
     }
 
     func testAllOnes() {
-        for _ in 1...20 {
-            game.roll(1)
-        }
+//        for _ in 1...20 {
+//            game.roll(1)
+//        }
+        game.roll(1)
+        game.roll(2)
+        game.roll(3)
+        game.roll(4)
+        game.roll(5)
+        game.roll(6)
+        game.roll(7)
+        game.roll(8)
+        game.roll(9)
+        game.roll(10)
+        game.roll(11)
+        game.roll(12)
+        game.roll(13)
+        game.roll(14)
+        game.roll(15)
+        game.roll(16)
+        game.roll(17)
+        game.roll(18)
+        game.roll(19)
+        game.roll(20)
         XCTAssertEqual(20, game.score())
+    }
+
+    func testOneSpare() {
+        game.roll(5)
+        game.roll(5)
+        game.roll(1)
+        rollMany(pins: 1, times: 17)
+        XCTAssertEqual(29, game.score())
+    }
+
+    func rollMany(pins: Int, times: Int) {
+        for _ in 1...times {
+            game.roll(pins)
+        }
     }
 
 }
