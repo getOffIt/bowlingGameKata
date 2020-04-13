@@ -15,6 +15,12 @@ class Frame {
     var frameFinished: Bool {
         return rollOneScored && rollTwoScored
     }
+    var isStrike: Bool {
+        if rollOne == 10 {
+            return true
+        }
+        return false
+    }
     var isSpare: Bool {
         if rollOne + rollTwo == 10 {
             return true
@@ -61,10 +67,14 @@ class Game {
         var counter = 0
         for frame in rolls {
             retVal += frame.frameScore
+            if frame.isStrike {
+                // add bonus points for Strike (next 2 rolls)
+                retVal += rolls[counter + 1].frameScore
+            }
             if frame.isSpare {
                 // no extra points for last frame
                 if counter != 9 {
-                    // add spare Bonus points to scoring
+                    // add Bonus points for spare (next 1 roll)
                     retVal += rolls[counter + 1].rollOne
                 }
             }
