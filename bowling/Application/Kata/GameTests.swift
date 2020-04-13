@@ -52,7 +52,7 @@ class GameTests: XCTestCase {
         game.roll(5)
         XCTAssertEqual(game.score(), 28)
     }
-    
+
     func rollMany(pins: Int, times: Int) {
         for _ in 1...times {
             game.roll(pins)
