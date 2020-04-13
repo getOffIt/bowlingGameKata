@@ -50,7 +50,8 @@ class GameTests: XCTestCase {
         rollMany(pins: 1, times: 18)
         game.roll(5)
         game.roll(5)
-        XCTAssertEqual(game.score(), 28)
+        game.roll(2)
+        XCTAssertEqual(game.score(), 30)
     }
 
     func testOneStrike() {
@@ -60,6 +61,14 @@ class GameTests: XCTestCase {
         rollMany(pins: 1, times: 17)
         XCTAssertEqual(game.score(), 41)
     }
+
+//    func testOneStrikeOnLastFrame() {
+//        game.roll(10)
+//        game.roll(5)
+//        game.roll(4)
+//        rollMany(pins: 1, times: 17)
+//        XCTAssertEqual(game.score(), 41)
+//    }
 
     func rollMany(pins: Int, times: Int) {
         for _ in 1...times {

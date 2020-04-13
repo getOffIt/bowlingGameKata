@@ -48,7 +48,7 @@ class Game {
 
     init() {
         rolls = Array()
-        for _ in 1...10 {
+        for _ in 1...11 {
             let frame = Frame()
             rolls.append(frame)
         }
