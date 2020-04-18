@@ -65,15 +65,25 @@ class Game {
     func score() -> Int {
         var retVal = 0
         var counter = 0
+        for counter in 0...9 {
+            
+        }
         for frame in rolls {
+            if counter == 10 {
+                // We don't count the extra frame
+                continue
+            }
             retVal += frame.frameScore
             if frame.isStrike {
-                // add bonus points for Strike (next 2 rolls)
-                retVal += rolls[counter + 1].frameScore
+                // no extra points for last frame
+                if counter <= 9 {
+                    // add bonus points for Strike (next 2 rolls)
+                    retVal += rolls[counter + 1].frameScore
+                }
             }
             if frame.isSpare {
                 // no extra points for last frame
-                if counter != 9 {
+                if counter <= 9 {
                     // add Bonus points for spare (next 1 roll)
                     retVal += rolls[counter + 1].rollOne
                 }
