@@ -27,7 +27,7 @@ class Frame {
         }
         return false
     }
-
+    
     func score(pins: Int) {
         if !rollOneScored {
             rollOne = pins
@@ -45,7 +45,7 @@ class Frame {
 class Game {
     private var rolls: [Frame]
     private var frameIndex = 0
-
+    
     init() {
         rolls = Array()
         for _ in 1...11 {
@@ -53,7 +53,7 @@ class Game {
             rolls.append(frame)
         }
     }
-
+    
     func roll(_ pins: Int) {
         let frame = rolls[frameIndex]
         frame.score(pins: pins)
@@ -64,31 +64,18 @@ class Game {
 
     func score() -> Int {
         var retVal = 0
-        var counter = 0
+        //        var counter = 0
         for counter in 0...9 {
-            
-        }
-        for frame in rolls {
-            if counter == 10 {
-                // We don't count the extra frame
-                continue
-            }
+        let frame = rolls[counter] 
             retVal += frame.frameScore
             if frame.isStrike {
-                // no extra points for last frame
-                if counter <= 9 {
-                    // add bonus points for Strike (next 2 rolls)
-                    retVal += rolls[counter + 1].frameScore
-                }
+                // add bonus points for Strike (next 2 rolls)
+                retVal += rolls[counter + 1].frameScore
             }
             if frame.isSpare {
-                // no extra points for last frame
-                if counter <= 9 {
-                    // add Bonus points for spare (next 1 roll)
-                    retVal += rolls[counter + 1].rollOne
-                }
+                // add Bonus points for spare (next 1 roll)
+                retVal += rolls[counter + 1].rollOne
             }
-            counter += 1
         }
         return retVal
     }
